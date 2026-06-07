@@ -1,0 +1,31 @@
+MODEL:
+  TYPE: vHeat
+  NAME: vHeat_tiny
+  DROP_PATH_RATE: 0.1
+
+  VHEAT:
+    EMBED_DIM: 96
+    DIMS: [96, 192, 384, 768]
+    DEPTHS: [2, 2, 6, 2]
+    POST_NORM: True
+
+  PARTIAL_HEAT:
+    ENABLE: False
+    MODE: stage
+    HEAT_RATIO: 1.0
+    STAGE_HEAT_RATIOS: [1.0, 1.0, 1.0, 1.0]
+    LIGHT_BRANCH: dwconv
+
+  FP:
+    ENABLE: False
+    MODE: stage
+    KEEP_RATIO: 1.0
+    STAGE_RATIOS: [1.0, 1.0, 1.0, 1.0]
+
+TRAIN:
+  BASE_LR: 5.e-4
+  WEIGHT_DECAY: 0.08
+
+DATA:
+  IMG_SIZE: 224
+  VAL_HAS_LABELS: True
