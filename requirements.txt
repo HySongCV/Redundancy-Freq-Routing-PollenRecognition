@@ -1,0 +1,19 @@
+# Core deep learning framework
+torch==2.1.0
+torchvision
+# Vision backbones and model utilities
+timm
+# Configuration
+yacs
+PyYAML
+# Numerical and data processing
+numpy
+pandas
+scikit-learn
+# Image processing
+Pillow
+opencv-python
+# Progress bar and logging utilities
+tqdm
+# FLOPs profiling
+thop
