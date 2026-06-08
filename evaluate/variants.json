@@ -1,0 +1,54 @@
+[
+  {
+    "name": "vHeat_baseline",
+    "cfg": "configs/vHeat/vHeat_tiny_224.yaml",
+    "resume": "/path/to/checkpoints/vheat_baseline/ckpt_epoch_best.pth",
+    "opts": [
+      "MODEL.PARTIAL_HEAT.ENABLE", "False",
+      "MODEL.PARTIAL_HEAT.MODE", "stage",
+      "MODEL.PARTIAL_HEAT.STAGE_HEAT_RATIOS", "[1.0,1.0,1.0,1.0]",
+      "MODEL.FP.ENABLE", "False",
+      "MODEL.FP.MODE", "stage",
+      "MODEL.FP.STAGE_RATIOS", "[1.0,1.0,1.0,1.0]"
+    ]
+  },
+  {
+    "name": "PHR_only",
+    "cfg": "configs/vHeat/vHeat_tiny_224.yaml",
+    "resume": "/path/to/checkpoints/phr_only/ckpt_epoch_best.pth",
+    "opts": [
+      "MODEL.PARTIAL_HEAT.ENABLE", "True",
+      "MODEL.PARTIAL_HEAT.MODE", "stage",
+      "MODEL.PARTIAL_HEAT.STAGE_HEAT_RATIOS", "[0.5,0.5,0.625,0.75]",
+      "MODEL.FP.ENABLE", "False",
+      "MODEL.FP.MODE", "stage",
+      "MODEL.FP.STAGE_RATIOS", "[1.0,1.0,1.0,1.0]"
+    ]
+  },
+  {
+    "name": "FDR_only",
+    "cfg": "configs/vHeat/vHeat_tiny_224.yaml",
+    "resume": "/path/to/checkpoints/fdr_only/ckpt_epoch_best.pth",
+    "opts": [
+      "MODEL.PARTIAL_HEAT.ENABLE", "False",
+      "MODEL.PARTIAL_HEAT.MODE", "stage",
+      "MODEL.PARTIAL_HEAT.STAGE_HEAT_RATIOS", "[1.0,1.0,1.0,1.0]",
+      "MODEL.FP.ENABLE", "True",
+      "MODEL.FP.MODE", "stage",
+      "MODEL.FP.STAGE_RATIOS", "[1.0,1.0,0.8,0.6]"
+    ]
+  },
+  {
+    "name": "PHR_FDR",
+    "cfg": "configs/vHeat/vHeat_tiny_224.yaml",
+    "resume": "/path/to/checkpoints/phr_fdr/ckpt_epoch_best.pth",
+    "opts": [
+      "MODEL.PARTIAL_HEAT.ENABLE", "True",
+      "MODEL.PARTIAL_HEAT.MODE", "stage",
+      "MODEL.PARTIAL_HEAT.STAGE_HEAT_RATIOS", "[0.5,0.5,0.625,0.75]",
+      "MODEL.FP.ENABLE", "True",
+      "MODEL.FP.MODE", "stage",
+      "MODEL.FP.STAGE_RATIOS", "[1.0,1.0,0.8,0.6]"
+    ]
+  }
+]
